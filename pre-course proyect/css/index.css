@@ -1,0 +1,148 @@
+/* -------- Principal styles -------- */
+
+main {
+    background-color: rgba(77, 127, 207, 0.205);
+    position: relative;
+    width: 240px;
+    height: 400px;
+    border: 2px solid rgba(0, 0, 0, .1);
+    margin: 70px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, .3);
+}
+
+form {
+    list-style: none;
+}
+
+label {
+    position: relative;
+    font-family: "Kumbh", sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: auto;
+    left: 32px;
+    top: 140px;
+}
+
+.input {
+    position: relative;
+    height: 30px;
+    width: 180px;
+    font-family: "Kumbh", sans-serif;
+    margin: auto;
+    top: 145px;
+    left: 26px;
+    border: 2px solid rgba(37, 100, 218, 0.4);
+    border-radius: 10px;
+    font-size: 1.2em;
+}
+
+.input:hover {
+    cursor: pointer;
+}
+
+.button {
+    position: relative;
+    height: 35px;
+    width: 130px;
+    font-family: "kumbh", sans-serif;
+    font-size: 1.2em;
+    background-color: rgba(37, 100, 218, 0.705);
+    margin: auto;
+    top: 230px;
+    left: 56px;
+    border: 2px solid rgba(37, 100, 218, 0.9);
+    border-radius: 10px;
+}
+
+.button:hover {
+    background-color: rgba(37, 100, 218, 0.85);
+    cursor: pointer;
+}
+
+.error {
+    text-align: center;
+    color: red;
+    font-size: 1.5em;
+    position: relative;
+    top: -50px;
+}
+
+/* -------- Reactive styles -------- */
+
+@media (min-width: 480px){
+    main {
+        width: 440px;
+        height: 450px;
+    }
+
+    label {
+        font-size: 1.5em;
+        left: 102px;
+    }
+
+    .input {
+        left: 100px;
+        height: 40px;
+        width: 240px;
+        font-size: 1.5em;
+    }
+
+    .button{
+        left: 130px;
+        top: 280px;
+        height: 45px;
+        width: 190px;
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 1024px){
+    main {
+        width: 640px;
+    }
+
+    label {
+        font-size: 1.5em;
+        left: 202px;
+    }
+
+    .input {
+        left: 200px;
+        height: 40px;
+        width: 240px;
+        font-size: 1.5em;
+    }
+
+    .button{
+        left: 230px;
+        top: 280px;
+        height: 45px;
+        width: 190px;
+        font-size: 1.5em;
+    }
+}
+
+@media (min-height: 750px){
+    main {
+        height: 711px;
+    }
+
+    label {
+        top: 240px;
+    }
+
+    .input{
+        top: 260px;
+    }
+
+    .button{
+        top: 500px;
+    }
+
+    .error{
+        top: 30px;
+    }
+}

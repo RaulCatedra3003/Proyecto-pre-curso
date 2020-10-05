@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><!--Start html head-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=yes, maximum-scale=3.0, minimum-scale=1.0"><!--set content and scale-->
+    <meta name="keywords" content="Form, Quiz, HTML, CSS, JS, JavaScript, Test, Comprueba tus conocimientos"><!--set metadata-->
+    <meta name="description" content="Esta página es un test para comprobar tus conocimientos sobre HTML, CSS y JavaScript">
+    <link rel="stylesheet" href="css/styles.css"><!--set the styles-->
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="js/index.js"></script><!--set the dcript-->
+    <title>¿Cuanto sabes de HTML, CSS y JS?</title><!--set the page title-->
+</head>
+<body><!--set the body of the page-->
+    <header class="mainHeader"><!--set the header-->
+        <h1 class="title">HTML, CSS y JavaScript Test</h1>
+    </header>
+    <main class="main"><!--set the main part-->
+        <form name="startForm" onsubmit="return validation();">
+            <li><label for="nickname">Nombre</label></li>
+            <li><input type="text" name="nickname" id="nickname" class="input"></li>
+            <li><input type="submit" value="Comenzar" class="button"></li>
+        </form>
+        <div class="error" id="error"></div>
+    </main>
+    <footer class="mainFooter"><!--set the footer-->
+        <p class="copy">© 2020 Raúl Cátedra Martínez | Todos los derechos reservados</p>
+    </footer>  
+</body>
+</html>
