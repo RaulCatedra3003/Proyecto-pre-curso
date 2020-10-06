@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><!--Start html head-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=yes, maximum-scale=3.0, minimum-scale=1.0"><!--set content and scale-->
+    <meta name="keywords" content="Form, Quiz, HTML, CSS, JS, JavaScript, Test, Comprueba tus conocimientos"><!--set metadata-->
+    <meta name="description" content="Esta página es un test para comprobar tus conocimientos sobre HTML, CSS y JavaScript">
+    <link rel="stylesheet" href="../css/styles.css"><!--set the styles-->
+    <link rel="stylesheet" href="../css/quiz.css">
+    <script type="text/javascript" src="../js/quiz.js"></script><!--set the script-->
+    <title>¿Cuanto sabes de HTML, CSS y JS?</title><!--set the page title-->
+</head>
+<body><!--set the body of the page-->
+    <header class="mainHeader"><!--set the header-->
+        <h1 class="title">HTML, CSS y JavaScript Test</h1>
+    </header>
+    <div class="progressBar"><!--set the progress bar-->
+        <label autosize=false class="progressLabel" for="htmlProgress"><h3 class="progressLabelTitle">HTML</h3></label>
+        <progress id="htmlProgress" max="100" value="0"></progress>
+        <label class="progressLabel" for="cssProgress"><h3 class="progressLabelTitle">CSS</h3></label>
+        <progress id="cssProgress" max="100" value="0"></progress>
+        <label class="progressLabel" for="javascriptProgress"><h3 class="progressLabelTitle">JS</h3></label>
+        <progress id="javascriptProgress" max="100" value="0"></progress>
+        <label class="progressLabel" for="end"><h3 class="progressLabelTitle">Fin</h3></label>
+    </div>
+    <main class="main"><!--set the type main box for all the questions-->
+        <div class="radioQuestion" id="questionRadio"><!--set the radio type questions-->
+            <h2 id="radioQuestions">Pregunta</h2>
+            <ul>
+                <li>
+                    <input type="radio" id="a" name="answerRadioA">
+                    <label for="radioA" id="radioAnswerA">respuesta 1</label>
+                </li>
+                <li>
+                    <input type="radio" id="b" name="answerRadioB">
+                    <label for="radioB" id="radioAnswerB">respuesta 2</label>
+                </li>
+                <li>
+                    <input type="radio" id="c" name="answerRadioC">
+                    <label for="radioC" id="radioAnswerC">respuesta 3</label>
+                </li>
+                <li>
+                    <input type="radio" id="d" name="answerRadioD">
+                    <label for="radioD" id="radioAnswerD">respuesta 4</label>
+                </li>
+            </ul>
+        </div>
+        <div class="checkboxQuestion" id="questionCheckbox"><!--set the checkbox type questions-->
+            <h2 id="checkboxQuestions">Pregunta</h2>
+            <ul>
+                <li>
+                    <input type="checkbox" id="a" name="answerCheckboxA">
+                    <label for="checkboxA" id="checkboxAnswerA">respuesta 1</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="b" name="answerCheckboxB">
+                    <label for="checkboxB" id="checkboxAnswerB">respuesta 2</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="c" name="answerCheckboxC">
+                    <label for="checkboxC" id="checkboxAnswerC">respuesta 3</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="d" name="answerCheckboxD">
+                    <label for="checkboxD" id="checkboxAnswerD">respuesta 4</label>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdownQuestion" id="questionDropdown"><!--set the dropdown type questions-->
+            <h2 id="dropdownQuestions">Pregunta</h2>
+            <li>
+                <select name="answerDropdown" id="dropdownAnswer">
+                    <option selected="" value="Default">Seleccione una opción</option>
+                    <option value="dropdownA" id="dropdownAnswerA">respuesta 1</option>
+                    <option value="dropdownB" id="dropdownAnswerB">respuesta 2</option>
+                    <option value="dropdownC" id="dropdownAnswerC">respuesta 3</option>
+                    <option value="dropdownD" id="dropdownAnswerD">respuesta 4</option>
+                </select>
+            </li>
+        </div>
+        <button onclick="loadQuiz();">Siguiente</button><!--set the button-->    
+    </main>
+    <footer class="mainFooter"><!--set the footer-->
+        <p class="copy">© 2020 Raúl Cátedra Martínez | Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
