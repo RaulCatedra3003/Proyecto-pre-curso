@@ -1,6 +1,6 @@
 /*
 The following file contains:
-- A list of objects: each object is a question whith it´s answers and the correct one. It´s a Json list. It's ordered as follows(start in 0 like the list item, ):
+- A list of objects: each object is a question whith it´s answers and the correct one. It´s a Json list. It's ordered as follows(start in 0 like the list item):
     * Questions from 0 to 13 (both included): HTML radio questions.
     * Questions from 14 to 29 (both included): HTML dropdown questions.
     * Questions from 30 to 35 (both included): HTML checkbox questions.
@@ -10,7 +10,27 @@ The following file contains:
     * Questions from 56 to 61 (both included): JavaScript radio questions.
     * Questions from 62 to 69 (both included): JavaScript dropdown questions.
     * Questions from 70 to 75 (both included): JavaScriot checkbox questions.
-- 
+- A counter to the question we are.
+- A variable to equals the random number.
+- A lot of variables that we use por take the parts were we like to include text.
+- A list to include the numbers of question that are been show, for no repeat.
+- A principal function who is called every time the user click on "Siguiente" button: This function use a counter to define the number of question and use it to call one tematic or other.
+- A function to know if a answer is marked
+- A function to know if the answer is correct and count the number of correct answers.
+- Three functions to inner the text in each type of question.
+- Three functions to show each type of question.
+- A function to load the next page.
+- A function that give us a random number between a min and a max (both included).
+*/
+
+/*
+TO DO:
+- See if a answer is selected, if not, show a error mesage.
+- If a answer is seleccted, see if this answer is correct, then show the next question.
+- If the answer is correct, counter of correct answers++
+- Read the number of total answer to set the max score
+- Create a score and save it
+- Change the progress bar in each question.
 */
 
 // Create the questions list.
@@ -550,4 +570,206 @@ const questionsData = [
     }
 ];
 
+// Define variables.
+var currentQuestion = 1;
+var randomnumber = 0;
+
+var questionRadio = document.getElementById("questionRadio");
+var questionCheckbox = document.getElementById("questionCheckbox");
+var questionDropdown = document.getElementById("questionDropdown");
+var radioQuestions = document.getElementById("radioQuestions");
+var radioAnswerA = document.getElementById("radioAnswerA");
+var radioAnswerB = document.getElementById("radioAnswerB");
+var radioAnswerC = document.getElementById("radioAnswerC");
+var radioAnswerD = document.getElementById("radioAnswerD");
+var checkboxQuestions = document.getElementById("checkboxQuestions");
+var checkboxAnswerA = document.getElementById("checkboxAnswerA");
+var checkboxAnswerB = document.getElementById("checkboxAnswerB");
+var checkboxAnswerC = document.getElementById("checkboxAnswerC");
+var checkboxAnswerD = document.getElementById("checkboxAnswerD");
+var dropdownQuestions = document.getElementById("dropdownQuestions");
+var dropdownAnswerA = document.getElementById("dropdownAnswerA");
+var dropdownAnswerB = document.getElementById("dropdownAnswerB");
+var dropdownAnswerC = document.getElementById("dropdownAnswerC");
+var dropdownAnswerD = document.getElementById("dropdownAnswerD");
+
+var questionsNumbers = [];
+
+//Call the first question
+loadRadioQuestion(0, 13);
+
+//Call the next questions (onclick), based in the number of question
+function loadQuiz() {    
+    isAnswerSelect();
+    isAnswerCorrect();    
+    
+    if (currentQuestion < 2) {
+        loadRadioQuestion(0, 13);
+        currentQuestion++;
+    } else if (currentQuestion === 2) {
+        loadCheckboxQuestion(30, 35);
+        currentQuestion++;      
+    } else if (currentQuestion < 5) {
+        loadDropdownQuestion(14, 29);
+        currentQuestion++;
+    } else if (currentQuestion === 5) {
+        loadCheckboxQuestion(30, 35);
+        currentQuestion++;
+    } else if (currentQuestion < 8) {
+        loadRadioQuestion(0, 13);
+        currentQuestion++;
+    } else if (currentQuestion === 8) {
+        loadCheckboxQuestion(30, 35);
+        currentQuestion++;
+    } else if (currentQuestion === 9) {
+        loadDropdownQuestion(14, 29);
+        currentQuestion++;
+
+    } else if (currentQuestion < 12) {
+        loadCheckboxQuestion(50, 55);
+        currentQuestion++;
+    }else if (currentQuestion === 12) {
+        loadRadioQuestion(36, 43);
+        currentQuestion++;      
+    } else if (currentQuestion < 15) {
+        loadDropdownQuestion(44, 49);
+        currentQuestion++;
+    } else if (currentQuestion === 15) {
+        loadRadioQuestion(36, 43);
+        currentQuestion++;
+    } else if (currentQuestion < 18) {
+        loadCheckboxQuestion(50, 55);
+        currentQuestion++;
+    } else if (currentQuestion === 18) {
+        loadRadioQuestion(36, 43);
+        currentQuestion++;
+    } else if (currentQuestion === 19) {
+        loadDropdownQuestion(44, 49);
+        currentQuestion++;
+
+    }else if (currentQuestion < 22) {
+        loadRadioQuestion(56, 61);
+        currentQuestion++;
+    }else if (currentQuestion === 22) {
+        loadCheckboxQuestion(70, 75);
+        currentQuestion++;      
+    } else if (currentQuestion < 25) {
+        loadDropdownQuestion(62, 69);
+        currentQuestion++;
+    } else if (currentQuestion === 25) {
+        loadCheckboxQuestion(70, 75);
+        currentQuestion++;
+    } else if (currentQuestion < 28) {
+        loadDropdownQuestion(62, 69);
+        currentQuestion++;
+    } else if (currentQuestion === 28) {
+        loadCheckboxQuestion(70, 75);
+        currentQuestion++;
+    } else if (currentQuestion === 29) {
+        loadRadioQuestion(56, 61);
+        currentQuestion++;
+
+    } else {
+        loadResultPage();
+    }  
+}
+
+//Define the functions to see if there are a answer selected, and if this answer is correct
+function isAnswerSelect() {
+    console.log("¿Hay respuesta seleccionada?")
+}
+
+function isAnswerCorrect() {
+    console.log("¿Es correcta la pregunta?");
+}
+
+//Define the load of the three types of questions
+function loadRadioQuestion(min, max) {
+    showRadio();
+    questionNumber();
+
+    function questionNumber() {
+        randomnumber = getRandom(min, max);
+        if (questionsNumbers.indexOf(randomnumber) === -1) {
+            questionsNumbers.push(randomnumber);
+            currentQuestionData = questionsData[randomnumber];
+            radioQuestions.innerText = currentQuestionData.question;
+            radioAnswerA.innerText = currentQuestionData.a;
+            radioAnswerB.innerText = currentQuestionData.b;
+            radioAnswerC.innerText = currentQuestionData.c;
+            radioAnswerD.innerText = currentQuestionData.d;
+        } else {
+            questionNumber();
+        }
+    }
+}
+
+function loadCheckboxQuestion(min, max) {
+    showCheckbox();
+    questionNumber();
+
+    function questionNumber() {
+        randomnumber = getRandom(min, max);
+        if (questionsNumbers.indexOf(randomnumber) === -1) {
+            questionsNumbers.push(randomnumber);
+            currentQuestionData = questionsData[randomnumber];
+            checkboxQuestions.innerText = currentQuestionData.question;
+            checkboxAnswerA.innerText = currentQuestionData.a;
+            checkboxAnswerB.innerText = currentQuestionData.b;
+            checkboxAnswerC.innerText = currentQuestionData.c;
+            checkboxAnswerD.innerText = currentQuestionData.d;
+        } else {
+            questionNumber();
+        }
+    }
+}
+
+function loadDropdownQuestion(min, max) {
+    showDropdown();
+    questionNumber();
+
+    function questionNumber() {
+        randomnumber = getRandom(min, max);
+        if (questionsNumbers.indexOf(randomnumber) === -1) {
+            questionsNumbers.push(randomnumber);
+            currentQuestionData = questionsData[randomnumber];
+            dropdownQuestions.innerText = currentQuestionData.question;
+            dropdownAnswerA.innerText = currentQuestionData.a;
+            dropdownAnswerB.innerText = currentQuestionData.b;
+            dropdownAnswerC.innerText = currentQuestionData.c;
+            dropdownAnswerD.innerText = currentQuestionData.d;
+        } else {
+            questionNumber();
+        }
+    }
+}
+
+//Define the function who send us to the result page
+function loadResultPage() {
+    setTimeout("location.href='results.html'", 0);
+}
+
+//Define the functions to show the type of question who want
+function showRadio() {
+    questionRadio.style.display = "block";
+    questionCheckbox.style.display = "none";
+    questionDropdown.style.display = "none";
+}
+
+function showCheckbox() {
+    questionRadio.style.display = "none";
+    questionCheckbox.style.display = "block";
+    questionDropdown.style.display = "none";
+}
+
+function showDropdown() {
+    questionRadio.style.display = "none";
+    questionCheckbox.style.display = "none";
+    questionDropdown.style.display = "block";
+}
+
+//Define the function that give us a random numbre between a min and a max (both included)
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
