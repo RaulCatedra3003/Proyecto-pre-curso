@@ -14,9 +14,7 @@ The following file contains:
 - A variable to equals the random number.
 - A lot of variables that we use por take the parts were we like to include text.
 - A list to include the numbers of question that are been show, for no repeat.
-- A principal function who is called every time the user click on "Siguiente" button: This function use a counter to define the number of question and use it to call one tematic or other.
-- A function to know if a answer is marked
-- A function to know if the answer is correct and count the number of correct answers.
+- A principal function who is called every time the user click on "Siguiente" button: This function fist get if there are a answer selected, then find if the answer is correct and then show the next question based in the counter.
 - Three functions to inner the text in each type of question.
 - Three functions to show each type of question.
 - A function to load the next page.
@@ -24,13 +22,9 @@ The following file contains:
 */
 
 /*
-TO DO:
-- See if a answer is selected, if not, show a error mesage.
-- If a answer is seleccted, see if this answer is correct, then show the next question.
-- If the answer is correct, counter of correct answers++
-- Read the number of total answer to set the max score
-- Create a score and save it
-- Change the progress bar in each question.
+TODO:
+- Change the progress bar in each question whit a animation.
+- Do a animation to change between questions.
 */
 
 // Create the questions list.
@@ -251,47 +245,47 @@ const questionsData = [
         "b": "El atributo onreset.",
         "c": "El atributo id.",
         "d": "El atributo title.",
-        "correct": ["a", "c", "d"]
+        "correct": ["A", "C", "D"]
     }, {
         "question": "¿Cuáles de los siguientes atributos pertenecen a los globales? (Respuesta múltiple)",
         "a": "El atributo onsubmit.",
         "b": "El atributo hidden.",
         "c": "El atributo lang.",
         "d": "El atributo onclick.",
-        "correct": ["b", "c"]
+        "correct": ["B", "C"]
     }, {
         "question": "¿Cuáles de los siguientes atributos pertenecen a los eventos de ventana? (Respuesta múltiple)",
         "a": "El atributo onerror.",
         "b": "El atributo onload.",
         "c": "El atributo ononline.",
         "d": "El atributo onclick.",
-        "correct": ["a", "b", "c"]
+        "correct": ["A", "B", "C"]
     }, {
         "question": "¿Cuáles de los siguientes atributos pertenecen a los eventos de formulario? (Respuesta múltiple)",
         "a": "El atributo onsubmit.",
         "b": "El atributo onfocus.",
         "c": "El atributo onload.",
         "d": "El atributo onselect.",
-        "correct": ["a", "b", "d"]
+        "correct": ["A", "B", "D"]
     }, {
         "question": "¿Cuáles de los siguientes atributos pertenecen a los eventos de raton? (Respuesta múltiple)",
         "a": "El atributo onwheel.",
         "b": "El atributo oninvalid.",
         "c": "El atributo onreset.",
         "d": "El atributo onclick.",
-        "correct": ["a", "d"]
+        "correct": ["A", "D"]
     }, {
         "question": "¿Cuáles de los siguientes atributos pertenecen a los eventos de teclado? (Respuesta múltiple)",
         "a": "El atributo onkeypress.",
         "b": "El atributo ondrag.",
         "c": "El atributo onkeyup.",
         "d": "El atributo oncopy.",
-        "correct": ["a", "c"]
+        "correct": ["A", "C"]
     }, {
         "question": "¿Cuál es la función principal de CSS?",
         "a": "Lenguage para crear la apariencia de las páginas webs.",
         "b": "Lenguaje para que se vea igual la pagina en todos los navegadores.",
-        "c": "LEnguaje para crear acciones sobre la página.",
+        "c": "Lenguaje para crear acciones sobre la página.",
         "d": "Lenguaje para que las paginas cambien entre navegadores.",
         "correct": "a"
     }, {
@@ -391,42 +385,42 @@ const questionsData = [
         "b": "CSS 1.",
         "c": "CSS 4.",
         "d": "CSS 2.",
-        "correct": ["a", "b", "d"]
+        "correct": ["A", "B", "C"]
     }, {
         "question": "¿Cuáles son las formas de aplicar las reglas CSS? (Respuesta múltiple)",
         "a": "Entre lineas.",
         "b": "En linea.",
         "c": "Interna.",
         "d": "Externa.",
-        "correct": ["b", "c", "d"]
+        "correct": ["B", "C", "D"]
     }, {
         "question": "¿Cuales de los siguientes son tipos de selectores? (Respuesta múltiple)",
         "a": "Selector simple.",
         "b": "Selector racional.",
         "c": "Selector universal.",
         "d": "Selector clase.",
-        "correct": ["a", "c", "d"]
+        "correct": ["A", "C", "D"]
     }, {
         "question": "¿Cuáles de los siguientes son tipos de declaraciones CSS? (Respuesta múltiple)",
         "a": "Sets de valores.",
         "b": "Sets de reglas",
         "c": "Reglas de propiedades.",
         "d": "Reglas At",
-        "correct": ["b", "d"]
+        "correct": ["B", "D"]
     }, {
         "question": "¿Cuáles de las siguientes opciones son propiedades? (Respuesta múltiple)",
         "a": "position.",
         "b": "display.",
         "c": "width.",
         "d": "center.",
-        "correct": ["a", "b", "c"]
+        "correct": ["A", "B", "C"]
     }, {
         "question": "¿Cuáles de las siguientes opciones son propiedades? (Respuesta múltiple)",
         "a": "font-family.",
         "b": "aling-text.",
         "c": "box-shadow.",
         "d": "border-radius.",
-        "correct": ["a", "c", "d"]
+        "correct": ["A", "C", "D"]
     }, {
         "question": "¿Qué es JavaScript?",
         "a": "Lenguaje de programación para el desarrollo de sistemas operativos.",
@@ -531,48 +525,51 @@ const questionsData = [
         "b": "Un usuário hace click sobre un boton.",
         "c": "Se termina de ejecutar una función JavaScript.",
         "d": "Un campo de entrada de información cambia de estado.",
-        "correct": ["a", "b", "d"]
+        "correct": ["A", "B", "D"]
     }, {
         "question": "Señala cuales de los siguientes son operadores lógicos en JavaScript (Respuesta múltiple).",
         "a": "||.",
         "b": "&&.",
         "c": "!.",
         "d": "%.",
-        "correct": ["a", "b", "d"]
+        "correct": ["A", "B", "D"]
     }, {
         "question": "Señala cuales de los siguientes son operadores de comparación en JavaScript (Respuesta múltiple).",
         "a": "&&.",
         "b": "==.",
         "c": ">=.",
         "d": "===.",
-        "correct": ["b", "c", "d"]
+        "correct": ["B", "C", "D"]
     }, {
         "question": "Señala cuales de los siguientes son tipos de errores en JavaScript (Respuesta múltiple).",
         "a": "Errores lógicos.",
         "b": "Errores de tiempo de ejecucción.",
         "c": "Errores de tiempo de carga.",
         "d": "Errores de comparación.",
-        "correct": ["a", "b", "c"]
+        "correct": ["A", "B", "C"]
     }, {
         "question": "Señala cuales de las siguientes afirmaciones sobre JavaScript son ciertas (Respuesta múltiple).",
         "a": "La diferencia entre JavaScript y Jscript es que JavaScript fue desarrollado por Netscape y Jscript por Microsoft.",
         "b": "No todas las variables en JavaScript son de tipo objeto.",
         "c": "Las cookies son archivos pequeños de prueba que se gurafan en un ordenador y se crean cuando el usuario visita los sitios webs.",
         "d": "Alert es el único tipo de ventana emergente diponible en JavaScript",
-        "correct": ["a", "c"]
+        "correct": ["A", "C"]
     }, {
         "question": "Señala cuales de las siguientes afirmaciones sobre JavaScript son falsas (Respuesta múltiple).",
         "a": "La diferencia entre JavaScript y Jscript es que JavaScript fue desarrollado por Netscape y Jscript por Microsoft.",
         "b": "No todas las variables en JavaScript son de tipo objeto.",
         "c": "Las cookies son archivos pequeños de prueba que se gurafan en un ordenador y se crean cuando el usuario visita los sitios webs.",
         "d": "Alert es el único tipo de ventana emergente diponible en JavaScript",
-        "correct": ["b", "d"]
+        "correct": ["B", "D"]
     }
 ];
 
 // Define variables.
 var currentQuestion = 1;
 var randomnumber = 0;
+var score = 0;
+var maxScore = 30;
+var finalScore = undefined;
 
 var questionRadio = document.getElementById("questionRadio");
 var questionCheckbox = document.getElementById("questionCheckbox");
@@ -598,11 +595,74 @@ var questionsNumbers = [];
 //Call the first question
 loadRadioQuestion(0, 13);
 
-//Call the next questions (onclick), based in the number of question
-function loadQuiz() {    
-    isAnswerSelect();
-    isAnswerCorrect();    
-    
+
+//Define the functions to see if there are a answer selected, and if this answer is correct, then show the next question.
+function isAnswerSelect() {
+    if (questionRadio.style.display == "block"){
+        var radios = document.getElementsByName("answerRadio");
+        var isChecked = false;
+        var selectedAnswer = undefined;
+        var correctAnswer = questionsData[(questionsNumbers[(currentQuestion-1)])].correct;
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                isChecked = true;
+                radios[i].checked = false;
+                selectedAnswer = radios[i].id;
+                if (selectedAnswer === correctAnswer) {
+                    score ++;
+                }
+                showNextQuestion();
+                break;
+            }
+        }
+        if (!isChecked) {
+            alert ("Es necesário elegir al menos una opción.");
+        }
+
+    } else if (questionCheckbox.style.display == "block") {
+        var checkboxs = document.getElementsByName("answerCheckbox");
+        var isChecked1 = false;
+        var selectedAnswers = [];
+        var correctAnswers = questionsData[(questionsNumbers[(currentQuestion-1)])].correct;
+        var internalScore = 0;
+        for (var i = 0; i < checkboxs.length; i++) {
+            if (checkboxs[i].checked) {
+                isChecked1 = true;
+                checkboxs[i].checked = false;
+                selectedAnswers.push(checkboxs[i].id);
+            }
+        }
+        if (!isChecked1) {
+            alert ("Es necesário elegir al menos una opción.");
+        } else {
+            for (var i = 0; i < correctAnswers.length; i++) {
+                if (selectedAnswers[i] === correctAnswers[i]) {
+                    internalScore ++;
+                }
+            }
+            if (internalScore === correctAnswers.length) {
+                score ++;
+            }
+            showNextQuestion();
+        }
+
+    } else {
+        var dropdowns = document.getElementById("dropdownAnswer");
+        var correctDDAnswer = questionsData[(questionsNumbers[(currentQuestion-1)])].correct;
+        if (dropdowns.value != "Default") {
+            if (dropdowns.value === correctDDAnswer) {
+                score ++;
+            }
+            dropdowns.value = "Default";
+            showNextQuestion();
+        } else {
+            alert ("Es necesário elegir al menos una opción.");
+        }
+    }
+}
+
+//Define the function to show the next question.
+function showNextQuestion() {
     if (currentQuestion < 2) {
         loadRadioQuestion(0, 13);
         currentQuestion++;
@@ -674,15 +734,6 @@ function loadQuiz() {
     }  
 }
 
-//Define the functions to see if there are a answer selected, and if this answer is correct
-function isAnswerSelect() {
-    console.log("¿Hay respuesta seleccionada?")
-}
-
-function isAnswerCorrect() {
-    console.log("¿Es correcta la pregunta?");
-}
-
 //Define the load of the three types of questions
 function loadRadioQuestion(min, max) {
     showRadio();
@@ -746,7 +797,10 @@ function loadDropdownQuestion(min, max) {
 
 //Define the function who send us to the result page
 function loadResultPage() {
-    setTimeout("location.href='results.html'", 0);
+    console.log(score);
+    finalScore = ((score*10)/maxScore);
+    console.log(finalScore);
+    //setTimeout("location.href='results.html'", 0);
 }
 
 //Define the functions to show the type of question who want
