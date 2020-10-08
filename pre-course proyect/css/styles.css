@@ -110,3 +110,23 @@ footer {
         bottom: -17px;
     }
 }
+
+@media (min-width: 2049px) {
+    header {
+        font-size: 4em;
+        height: 120px;
+    }
+
+    .title {
+        top: 35px;
+    }
+
+    footer {
+        height: 120px;
+        font-size: 4em;
+    }
+
+    .copy {
+        bottom: -45px;
+    }
+}

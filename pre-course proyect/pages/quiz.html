@@ -13,14 +13,14 @@
     <header class="mainHeader"><!--set the header-->
         <h1 class="title">HTML, CSS y JavaScript Test</h1>
     </header>
-    <div class="progressBar"><!--set the progress bar-->
-        <label autosize=false class="progressLabel" for="htmlProgress"><h3 class="progressLabelTitle">HTML</h3></label>
-        <progress id="htmlProgress" max="100" value="0"></progress>
-        <label class="progressLabel" for="cssProgress"><h3 class="progressLabelTitle">CSS</h3></label>
-        <progress id="cssProgress" max="100" value="0"></progress>
-        <label class="progressLabel" for="javascriptProgress"><h3 class="progressLabelTitle">JS</h3></label>
-        <progress id="javascriptProgress" max="100" value="0"></progress>
-        <label class="progressLabel" for="end"><h3 class="progressLabelTitle">Fin</h3></label>
+    <div class="progressBars"><!--set the progress bar-->
+        <label autosize=false class="progressLabel" for="htmlProgress" id="htmlLabel"><h3 class="progressLabelTitle">HTML</h3></label>
+        <div class="htmlProgress" data-html-lable="0%" id="progressHtml"></div>
+        <label class="progressLabel" for="cssProgress" id="cssLabel"><h3 class="progressLabelTitle">CSS</h3></label>
+        <div class="cssProgress" data-css-lable="0%" id="progressCss"></div>
+        <label class="progressLabel" for="javascriptProgress" id="jsLabel"><h3 class="progressLabelTitle">JS</h3></label>
+        <div class="jsProgress" data-js-lable="0%" id="progressJs"></div>
+        <label class="progressLabel" for="end" id="endLabel"><h3 class="progressLabelTitle">Fin</h3></label>
     </div>
     <main class="main"><!--set the type main box for all the questions-->
         <div class="radioQuestion" id="questionRadio"><!--set the radio type questions-->

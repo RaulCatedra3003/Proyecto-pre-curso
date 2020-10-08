@@ -16,15 +16,17 @@ The following file contains:
 - A list to include the numbers of question that are been show, for no repeat.
 - A principal function who is called every time the user click on "Siguiente" button: This function fist get if there are a answer selected, then find if the answer is correct and then show the next question based in the counter.
 - Three functions to inner the text in each type of question.
-- Three functions to show each type of question.
+- Four functions to show each type of question or hidde all.
 - A function to load the next page.
 - A function that give us a random number between a min and a max (both included).
+- Three functions to use when the type of question is the same, to change the animation.
+- Three functions to show the progress bar like a animation.
 */
 
 /*
 TODO:
-- Change the progress bar in each question whit a animation.
-- Do a animation to change between questions.
+- finish local storage.
+- create results.html
 */
 
 // Create the questions list.
@@ -464,7 +466,7 @@ const questionsData = [
         "d": "Ninguna de las anteriores es correcta.",
         "correct": "c"
     }, {
-        "question": "En qué año se creo JavaScript?",
+        "question": "¿En qué año se creo JavaScript?",
         "a": "1995.",
         "b": "1999.",
         "c": "2002.",
@@ -520,42 +522,42 @@ const questionsData = [
         "d": "* (por).",
         "correct": "c"
     }, {
-        "question": "Señala cuales de las siguientes opciones son tipos de eventos en JavaScript (Respuesta múltiple).",
+        "question": "Señala cuáles de las siguientes opciones son tipos de eventos en JavaScript (Respuesta múltiple).",
         "a": "Una pagina HTML termina de cargar.",
         "b": "Un usuário hace click sobre un boton.",
         "c": "Se termina de ejecutar una función JavaScript.",
         "d": "Un campo de entrada de información cambia de estado.",
         "correct": ["A", "B", "D"]
     }, {
-        "question": "Señala cuales de los siguientes son operadores lógicos en JavaScript (Respuesta múltiple).",
+        "question": "Señala cuáles de los siguientes son operadores lógicos en JavaScript (Respuesta múltiple).",
         "a": "||.",
         "b": "&&.",
         "c": "!.",
         "d": "%.",
         "correct": ["A", "B", "D"]
     }, {
-        "question": "Señala cuales de los siguientes son operadores de comparación en JavaScript (Respuesta múltiple).",
+        "question": "Señala cuáles de los siguientes son operadores de comparación en JavaScript (Respuesta múltiple).",
         "a": "&&.",
         "b": "==.",
         "c": ">=.",
         "d": "===.",
         "correct": ["B", "C", "D"]
     }, {
-        "question": "Señala cuales de los siguientes son tipos de errores en JavaScript (Respuesta múltiple).",
+        "question": "Señala cuáles de los siguientes son tipos de errores en JavaScript (Respuesta múltiple).",
         "a": "Errores lógicos.",
         "b": "Errores de tiempo de ejecucción.",
         "c": "Errores de tiempo de carga.",
         "d": "Errores de comparación.",
         "correct": ["A", "B", "C"]
     }, {
-        "question": "Señala cuales de las siguientes afirmaciones sobre JavaScript son ciertas (Respuesta múltiple).",
+        "question": "Señala cuáles de las siguientes afirmaciones sobre JavaScript son ciertas (Respuesta múltiple).",
         "a": "La diferencia entre JavaScript y Jscript es que JavaScript fue desarrollado por Netscape y Jscript por Microsoft.",
         "b": "No todas las variables en JavaScript son de tipo objeto.",
         "c": "Las cookies son archivos pequeños de prueba que se gurafan en un ordenador y se crean cuando el usuario visita los sitios webs.",
         "d": "Alert es el único tipo de ventana emergente diponible en JavaScript",
         "correct": ["A", "C"]
     }, {
-        "question": "Señala cuales de las siguientes afirmaciones sobre JavaScript son falsas (Respuesta múltiple).",
+        "question": "Señala cuáles de las siguientes afirmaciones sobre JavaScript son falsas (Respuesta múltiple).",
         "a": "La diferencia entre JavaScript y Jscript es que JavaScript fue desarrollado por Netscape y Jscript por Microsoft.",
         "b": "No todas las variables en JavaScript son de tipo objeto.",
         "c": "Las cookies son archivos pequeños de prueba que se gurafan en un ordenador y se crean cuando el usuario visita los sitios webs.",
@@ -568,33 +570,39 @@ const questionsData = [
 var currentQuestion = 1;
 var randomnumber = 0;
 var score = 0;
-var maxScore = 30;
+const maxScore = 30;
 var finalScore = undefined;
-
-var questionRadio = document.getElementById("questionRadio");
-var questionCheckbox = document.getElementById("questionCheckbox");
-var questionDropdown = document.getElementById("questionDropdown");
-var radioQuestions = document.getElementById("radioQuestions");
-var radioAnswerA = document.getElementById("radioAnswerA");
-var radioAnswerB = document.getElementById("radioAnswerB");
-var radioAnswerC = document.getElementById("radioAnswerC");
-var radioAnswerD = document.getElementById("radioAnswerD");
-var checkboxQuestions = document.getElementById("checkboxQuestions");
-var checkboxAnswerA = document.getElementById("checkboxAnswerA");
-var checkboxAnswerB = document.getElementById("checkboxAnswerB");
-var checkboxAnswerC = document.getElementById("checkboxAnswerC");
-var checkboxAnswerD = document.getElementById("checkboxAnswerD");
-var dropdownQuestions = document.getElementById("dropdownQuestions");
-var dropdownAnswerA = document.getElementById("dropdownAnswerA");
-var dropdownAnswerB = document.getElementById("dropdownAnswerB");
-var dropdownAnswerC = document.getElementById("dropdownAnswerC");
-var dropdownAnswerD = document.getElementById("dropdownAnswerD");
-
 var questionsNumbers = [];
+
+const questionRadio = document.getElementById("questionRadio");
+const questionCheckbox = document.getElementById("questionCheckbox");
+const questionDropdown = document.getElementById("questionDropdown");
+const radioQuestions = document.getElementById("radioQuestions");
+const radioAnswerA = document.getElementById("radioAnswerA");
+const radioAnswerB = document.getElementById("radioAnswerB");
+const radioAnswerC = document.getElementById("radioAnswerC");
+const radioAnswerD = document.getElementById("radioAnswerD");
+const checkboxQuestions = document.getElementById("checkboxQuestions");
+const checkboxAnswerA = document.getElementById("checkboxAnswerA");
+const checkboxAnswerB = document.getElementById("checkboxAnswerB");
+const checkboxAnswerC = document.getElementById("checkboxAnswerC");
+const checkboxAnswerD = document.getElementById("checkboxAnswerD");
+const dropdownQuestions = document.getElementById("dropdownQuestions");
+const dropdownAnswerA = document.getElementById("dropdownAnswerA");
+const dropdownAnswerB = document.getElementById("dropdownAnswerB");
+const dropdownAnswerC = document.getElementById("dropdownAnswerC");
+const dropdownAnswerD = document.getElementById("dropdownAnswerD");
+const progressHtml = document.getElementById("progressHtml");
+const progressCss = document.getElementById("progressCss");
+const progressJs = document.getElementById("progressJs");
+const htmlLable = document.getElementById("htmlLabel");
+const cssLable = document.getElementById("cssLabel");
+const jsLable = document.getElementById("jsLabel");
+const endLabel = document.getElementById("endLabel");
+const animationHtml = window.getComputedStyle(document.querySelector(".htmlProgress", ":before"));
 
 //Call the first question
 loadRadioQuestion(0, 13);
-
 
 //Define the functions to see if there are a answer selected, and if this answer is correct, then show the next question.
 function isAnswerSelect() {
@@ -646,7 +654,7 @@ function isAnswerSelect() {
             showNextQuestion();
         }
 
-    } else {
+    } else if (questionDropdown.style.display == "block") {
         var dropdowns = document.getElementById("dropdownAnswer");
         var correctDDAnswer = questionsData[(questionsNumbers[(currentQuestion-1)])].correct;
         if (dropdowns.value != "Default") {
@@ -658,80 +666,149 @@ function isAnswerSelect() {
         } else {
             alert ("Es necesário elegir al menos una opción.");
         }
+    } else {
+        showNextQuestion();
     }
 }
 
 //Define the function to show the next question.
 function showNextQuestion() {
     if (currentQuestion < 2) {
+        animationBarHtml(10);
         loadRadioQuestion(0, 13);
+        secondRadioAnimation();
         currentQuestion++;
     } else if (currentQuestion === 2) {
+        animationBarHtml(20);
         loadCheckboxQuestion(30, 35);
         currentQuestion++;      
-    } else if (currentQuestion < 5) {
+    } else if (currentQuestion === 3) {
+        animationBarHtml(30);
         loadDropdownQuestion(14, 29);
         currentQuestion++;
+    } else if (currentQuestion === 4) {
+        animationBarHtml(40);
+        loadDropdownQuestion(14, 29);
+        secondDropdownAnimation();
+        currentQuestion++;
     } else if (currentQuestion === 5) {
+        animationBarHtml(50);
         loadCheckboxQuestion(30, 35);
         currentQuestion++;
-    } else if (currentQuestion < 8) {
+    } else if (currentQuestion === 6) {
+        animationBarHtml(60);
         loadRadioQuestion(0, 13);
         currentQuestion++;
+    } else if (currentQuestion === 7) {
+        animationBarHtml(70);
+        loadRadioQuestion(0, 13);
+        secondRadioAnimation();
+        currentQuestion++;
     } else if (currentQuestion === 8) {
+        animationBarHtml(80);
         loadCheckboxQuestion(30, 35);
         currentQuestion++;
     } else if (currentQuestion === 9) {
+        animationBarHtml(90);
         loadDropdownQuestion(14, 29);
         currentQuestion++;
-
-    } else if (currentQuestion < 12) {
+    } else if (currentQuestion === 10) {
+        animationBarHtml(100);
+        htmlLable.style.backgroundColor = "rgba(37, 100, 218, .9)";
         loadCheckboxQuestion(50, 55);
         currentQuestion++;
-    }else if (currentQuestion === 12) {
+    } else if (currentQuestion === 11) {
+        animationBarCss(10);
+        loadCheckboxQuestion(50, 55);
+        secondCheckboxAnimation();
+        currentQuestion++;
+    } else if (currentQuestion === 12) {
+        animationBarCss(20);
         loadRadioQuestion(36, 43);
         currentQuestion++;      
-    } else if (currentQuestion < 15) {
+    } else if (currentQuestion === 13) {
+        animationBarCss(30);
         loadDropdownQuestion(44, 49);
         currentQuestion++;
+    } else if (currentQuestion === 14) {
+        animationBarCss(40);
+        loadDropdownQuestion(44, 49);
+        secondDropdownAnimation();
+        currentQuestion++;
     } else if (currentQuestion === 15) {
+        animationBarCss(50);
         loadRadioQuestion(36, 43);
         currentQuestion++;
-    } else if (currentQuestion < 18) {
+    } else if (currentQuestion === 16) {
+        animationBarCss(60);
         loadCheckboxQuestion(50, 55);
         currentQuestion++;
+    } else if (currentQuestion === 17) {
+        animationBarCss(70);
+        loadCheckboxQuestion(50, 55);
+        secondCheckboxAnimation();
+        currentQuestion++;
     } else if (currentQuestion === 18) {
+        animationBarCss(80);
         loadRadioQuestion(36, 43);
         currentQuestion++;
     } else if (currentQuestion === 19) {
+        animationBarCss(90);
         loadDropdownQuestion(44, 49);
         currentQuestion++;
-
-    }else if (currentQuestion < 22) {
+    } else if (currentQuestion === 20) {
+        animationBarCss(100);
+        cssLable.style.backgroundColor = "rgba(37, 100, 218, .9)";
         loadRadioQuestion(56, 61);
         currentQuestion++;
-    }else if (currentQuestion === 22) {
+    } else if (currentQuestion === 21) {
+        animationBarJs(10);
+        loadRadioQuestion(56, 61);
+        secondRadioAnimation();
+        currentQuestion++;
+    } else if (currentQuestion === 22) {
+        animationBarJs(20);
         loadCheckboxQuestion(70, 75);
         currentQuestion++;      
-    } else if (currentQuestion < 25) {
+    } else if (currentQuestion === 23) {
+        animationBarJs(30);
         loadDropdownQuestion(62, 69);
+        currentQuestion++;
+    } else if (currentQuestion === 24) {
+        animationBarJs(40);
+        loadDropdownQuestion(62, 69);
+        secondDropdownAnimation();
         currentQuestion++;
     } else if (currentQuestion === 25) {
+        animationBarJs(50);
         loadCheckboxQuestion(70, 75);
         currentQuestion++;
-    } else if (currentQuestion < 28) {
+    } else if (currentQuestion === 26) {
+        animationBarJs(60);
         loadDropdownQuestion(62, 69);
         currentQuestion++;
+    } else if (currentQuestion === 27) {
+        animationBarJs(70);
+        loadDropdownQuestion(62, 69);
+        secondDropdownAnimation();
+        currentQuestion++;
     } else if (currentQuestion === 28) {
+        animationBarJs(80);
         loadCheckboxQuestion(70, 75);
         currentQuestion++;
     } else if (currentQuestion === 29) {
+        animationBarJs(90);
         loadRadioQuestion(56, 61);
         currentQuestion++;
-
+    } else if (currentQuestion === 30) {
+        animationBarJs(100);
+        jsLable.style.backgroundColor = "rgba(37, 100, 218, .9)";
+        endLabel.style.backgroundColor = "rgba(37, 100, 218, .9)";
+        hiddeAll();
+        currentQuestion++;
     } else {
         loadResultPage();
-    }  
+    } 
 }
 
 //Define the load of the three types of questions
@@ -797,15 +874,17 @@ function loadDropdownQuestion(min, max) {
 
 //Define the function who send us to the result page
 function loadResultPage() {
-    console.log(score);
     finalScore = ((score*10)/maxScore);
-    console.log(finalScore);
-    //setTimeout("location.href='results.html'", 0);
+    var actualUser = {"nombre": localStorage.getItem("name"), "score": finalScore};
+    localStorage.setItem("usersScores", JSON.stringify(actualUser));
+    setTimeout("location.href='../index.html'", 0);//TODO: change to the result page
 }
 
-//Define the functions to show the type of question who want
+//Define the functions to show the type of question or hidde all.
 function showRadio() {
     questionRadio.style.display = "block";
+    questionRadio.style.animationName = "questionAnimation";
+    questionRadio.style.animationDuration = "2.5s";
     questionCheckbox.style.display = "none";
     questionDropdown.style.display = "none";
 }
@@ -813,6 +892,8 @@ function showRadio() {
 function showCheckbox() {
     questionRadio.style.display = "none";
     questionCheckbox.style.display = "block";
+    questionCheckbox.style.animationName = "questionAnimation";
+    questionCheckbox.style.animationDuration = "2.5s";
     questionDropdown.style.display = "none";
 }
 
@@ -820,6 +901,14 @@ function showDropdown() {
     questionRadio.style.display = "none";
     questionCheckbox.style.display = "none";
     questionDropdown.style.display = "block";
+    questionDropdown.style.animationName = "questionAnimation";
+    questionDropdown.style.animationDuration = "2.5s";
+}
+
+function hiddeAll() {
+    questionRadio.style.display = "none";
+    questionCheckbox.style.display = "none";
+    questionDropdown.style.display = "none";
 }
 
 //Define the function that give us a random numbre between a min and a max (both included)
@@ -827,3 +916,49 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//Define three functions for the diferent animations.
+function secondRadioAnimation () {
+    questionRadio.style.animationName = "questionAnimation2";
+    questionRadio.style.animationDuration = "2.5s";
+}
+
+function secondCheckboxAnimation () {
+    questionCheckbox.style.animationName = "questionAnimation2";
+    questionCheckbox.style.animationDuration = "2.5s";
+}
+
+function secondDropdownAnimation () {
+    questionDropdown.style.animationName = "questionAnimation2";
+    questionDropdown.style.animationDuration = "2.5s";
+}
+
+//Define the functions who change progress bars.
+function animationBarHtml(percent) {
+    var unitpercent = percent - 9;
+    setTimeout(function() {
+        for (i = 0; i < 9; i ++) {
+        progressHtml.style.setProperty("--width", unitpercent);
+        unitpercent++;
+    }}, 200);
+    progressHtml.dataset.htmlLable = (percent) + "%";
+}
+
+function animationBarCss(percent) {
+    var unitpercent = percent - 9;
+    setTimeout(function() {
+        for (i = 0; i < 9; i ++) {
+        progressCss.style.setProperty("--width", unitpercent);
+        unitpercent++;
+    }}, 200);
+    progressCss.dataset.cssLable = (percent) + "%";
+}
+
+function animationBarJs(percent) {
+    var unitpercent = percent - 9;
+    setTimeout(function() {
+        for (i = 0; i < 9; i ++) {
+            progressJs.style.setProperty("--width", unitpercent);
+        unitpercent++;
+    }}, 200);
+    progressJs.dataset.jsLable = (percent) + "%";
+}

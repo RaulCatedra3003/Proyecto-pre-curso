@@ -8,7 +8,12 @@ function validation(){
 
     if (unickName.value.match(letters)){
         userName = unickName.value;
-        console.log('nombre correcto');
+        if (localStorage.getItem("name") != null) {
+            localStorage.removeItem("name");
+            localStorage.setItem("name", userName);     
+        } else {
+            localStorage.setItem("name", userName);
+        }
         setTimeout("location.href='pages/quiz.html'", 0);
     } else {
         console.log('nombre incorrecto');
@@ -18,5 +23,4 @@ function validation(){
     errors.innerHTML = errorMesajeIndex.join(', ');
     console.log(userName);
     return false;
-
 }
