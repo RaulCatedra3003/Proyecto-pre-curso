@@ -70,7 +70,7 @@ label {
     top: -50px;
 }
 
-/* -------- Reactive styles -------- */
+/* -------- Responsive styles -------- */
 
 @media (min-width: 480px){
     main {
@@ -125,24 +125,49 @@ label {
     }
 }
 
-@media (min-height: 750px){
+@media (min-width: 2049px){
     main {
-        height: 711px;
+        width: 2000px;
     }
 
     label {
-        top: 240px;
+        font-size: 3em;
+        left: 750px;
+        top: 600px
     }
 
-    .input{
-        top: 260px;
+    .input {
+        height: 80px;
+        width: 480px;
+        top: 700px;
+        left: 750px;
+    }
+    
+    .button {
+        height: 90px;
+        width: 380px;
+        font-size: 3em;
+        top: 1280px;
+        left: 1030px;
+    }
+}
+
+@media (min-height: 522px){
+    main {
+        height: 493px;
+    }
+}
+
+@media (min-height: 721px){
+    main {
+        height: 853px;
     }
 
-    .button{
-        top: 500px;
+}
+
+@media (min-height: 1081px){
+    main {
+        height: 1785px;
     }
 
-    .error{
-        top: 30px;
-    }
 }

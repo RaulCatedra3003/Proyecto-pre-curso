@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><!--Start html head-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=yes, maximum-scale=3.0, minimum-scale=1.0"><!--set content and scale-->
+    <meta name="keywords" content="Form, Quiz, HTML, CSS, JS, JavaScript, Test, Comprueba tus conocimientos"><!--set metadata-->
+    <meta name="description" content="Esta página es un test para comprobar tus conocimientos sobre HTML, CSS y JavaScript">
+    <link rel="stylesheet" href="../css/styles.css"><!--set the styles-->
+    <link rel="stylesheet" href="../css/results.css">
+    <title>¿Cuanto sabes de HTML, CSS y JS?</title><!--set the page title-->
+</head>
+<body onbeforeunload="return tableHide()"><!--set the body of the page-->
+    <header class="mainHeader"><!--set the header-->
+        <h1 class="title">HTML, CSS y JavaScript Test</h1>
+    </header>
+    <main><!--set the main part of the page-->
+        <h2>Puntuación</h2><!--set the title-->
+        <table><!--set the table-->
+            <tr>
+                <th class="tags">Nombre</th>
+                <th class="tags">Puntuación</th>
+            </tr>
+            <tr>
+                <th class="userTags" id="userName1">nombre 1</th>
+                <th class="userTags" id="userScore1">1</th>
+            </tr>
+            <tr>
+                <th class="userTags" id="userName2">nombre 2</th>
+                <th class="userTags" id="userScore2">2</th>
+            </tr>
+            <tr>
+                <th class="userTags" id="userName3">nombre 3</th>
+                <th class="userTags" id="userScore3">3</th>
+            </tr>
+            <tr>
+                <th class="userTags" id="userName4">nombre 4</th>
+                <th class="userTags" id="userScore4">4</th>
+            </tr>
+            <tr>
+                <th class="userTags" id="userName5">nombre 5</th>
+                <th class="userTags" id="userScore5">5</th>
+            </tr>
+            <tr>
+                <th class="userTags" id="userName6">nombre 6</th>
+                <th class="userTags" id="userScore6">6</th>
+            </tr>
+            <tr>
+                <th class="userTags" id="userName7">nombre 7</th>
+                <th class="userTags" id="userScore7">7</th>
+            </tr>
+            <tr>
+                <th class="userTags" id="userName8">nombre 8</th>
+                <th class="userTags" id="userScore8">8</th>
+            </tr>
+            <tr>
+                <th class="userTags" id="userName9">nombre 9</th>
+                <th class="userTags" id="userScore9">9</th>
+            </tr>
+            <tr>
+                <th class="userTags" id="userName10">nombre 10</th>
+                <th class="userTags" id="userScore10">10</th>
+            </tr>
+        </table>
+        <ul><!--set the buttons-->
+            <li>
+                <button onclick="retry();">Nuevo intento</button>
+            </li>
+            <li>
+                <button class="order" onclick="order();">Ordenar</button>
+            </li>
+        </ul>
+    </main>
+    <footer class="mainFooter"><!--set the footer-->
+        <p class="copy">© 2020 Raúl Cátedra Martínez | Todos los derechos reservados</p>
+    </footer>
+    <script type="text/javascript" src="../js/results.js"></script><!--set the script-->
+</body>
+</html>

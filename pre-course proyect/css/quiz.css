@@ -211,7 +211,7 @@ option {
     display: none;
 }
 
-/* -------- Reactive styles -------- */
+/* -------- Responsive styles -------- */
 
 @media (min-width: 480px){
     .progressBar {

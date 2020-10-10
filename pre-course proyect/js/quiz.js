@@ -17,16 +17,10 @@ The following file contains:
 - A principal function who is called every time the user click on "Siguiente" button: This function fist get if there are a answer selected, then find if the answer is correct and then show the next question based in the counter.
 - Three functions to inner the text in each type of question.
 - Four functions to show each type of question or hidde all.
-- A function to load the next page.
+- A function to load the next page and take the name of localStorage, put it in a object whith the score and put this object inside of an array an save it in localStorage.
 - A function that give us a random number between a min and a max (both included).
 - Three functions to use when the type of question is the same, to change the animation.
 - Three functions to show the progress bar like a animation.
-*/
-
-/*
-TODO:
-- finish local storage.
-- create results.html
 */
 
 // Create the questions list.
@@ -305,7 +299,7 @@ const questionsData = [
         "d": "Conjunto de propiedades con su valor que se aplican a un selector.",
         "correct": "d"
     }, {
-        "question": "Qué son las reglas At?",
+        "question": "¿Qué son las reglas At?",
         "a": "Reglas que se utilizan para establecer información de metadatos, información condicional o información descriptiba.",
         "b": "Reglas que se utilizan para establecer información de estilos.",
         "c": "Reglas que se utilizan para establecer la información sobre valores.",
@@ -387,7 +381,7 @@ const questionsData = [
         "b": "CSS 1.",
         "c": "CSS 4.",
         "d": "CSS 2.",
-        "correct": ["A", "B", "C"]
+        "correct": ["A", "B", "D"]
     }, {
         "question": "¿Cuáles son las formas de aplicar las reglas CSS? (Respuesta múltiple)",
         "a": "Entre lineas.",
@@ -494,7 +488,7 @@ const questionsData = [
         "d": "Ninguna de las anteriores es correcta.",
         "correct": "b"
     }, {
-        "question": "¿Donde debe colocarse la llamada al código JavaScript?",
+        "question": "¿Dónde debe colocarse la llamada al código JavaScript?",
         "a": "Puede colorcarse en la sección head o en body.",
         "b": "Puede colocarse solamente en la sección head.",
         "c": "Puede colocarse solamente en la sección body.",
@@ -515,7 +509,7 @@ const questionsData = [
         "d": "La palabra reservada end.",
         "correct": "b"
     }, {
-        "question": "Que carácter se utiliza en JavaScript para concatenar cadenas de caracteres?",
+        "question": "¿Qué carácter se utiliza en JavaScript para concatenar cadenas de caracteres?",
         "a": ". (punto).",
         "b": "& (ampersand).",
         "c": "+ (más).",
@@ -574,6 +568,7 @@ const maxScore = 30;
 var finalScore = undefined;
 var questionsNumbers = [];
 
+const button = document.getElementById("button")
 const questionRadio = document.getElementById("questionRadio");
 const questionCheckbox = document.getElementById("questionCheckbox");
 const questionDropdown = document.getElementById("questionDropdown");
@@ -648,7 +643,7 @@ function isAnswerSelect() {
                     internalScore ++;
                 }
             }
-            if (internalScore === correctAnswers.length) {
+            if (internalScore === correctAnswers.length && correctAnswers.length === selectedAnswers.length) {
                 score ++;
             }
             showNextQuestion();
@@ -806,6 +801,7 @@ function showNextQuestion() {
         endLabel.style.backgroundColor = "rgba(37, 100, 218, .9)";
         hiddeAll();
         currentQuestion++;
+        button.innerText = "Resultados";
     } else {
         loadResultPage();
     } 
@@ -875,9 +871,20 @@ function loadDropdownQuestion(min, max) {
 //Define the function who send us to the result page
 function loadResultPage() {
     finalScore = ((score*10)/maxScore);
-    var actualUser = {"nombre": localStorage.getItem("name"), "score": finalScore};
-    localStorage.setItem("usersScores", JSON.stringify(actualUser));
-    setTimeout("location.href='../index.html'", 0);//TODO: change to the result page
+    var usersScores = [];
+    var usersNames = JSON.parse(localStorage.getItem("usersNames"));
+    var actualName = usersNames[(usersNames.length - 1)];
+    var actualUser = {"nombre": actualName, "score": finalScore};
+    if (localStorage.getItem("usersScores") === null) {
+        usersScores.push(actualUser);
+        localStorage.setItem("usersScores", JSON.stringify(usersScores));
+    } else {
+        let usersScoresAdd = JSON.parse(localStorage.getItem("usersScores"));
+        usersScoresAdd.push(actualUser);
+        localStorage.setItem("usersScores", JSON.stringify(usersScoresAdd));
+    }
+    localStorage.setItem("isHidden", false);
+    setTimeout("location.href='results.html'", 0);
 }
 
 //Define the functions to show the type of question or hidde all.

@@ -102,7 +102,7 @@ footer {
     bottom: -10px;
 }
 
-/* -------- Reactive styles -------- */
+/* -------- Responsive styles -------- */
 
 @media (min-width: 342px){
     .copy{

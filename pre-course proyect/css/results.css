@@ -1,0 +1,180 @@
+/* -------- Principal styles -------- */
+
+main {
+    position: relative;
+    width: 240px;
+    height: 400px;
+    margin: 15px auto;
+    display: block;
+    border-radius: 8px;
+}
+
+h2 {
+    font-family: "Kumbh", sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: left;
+    position: relative;
+    top: 10px;
+    left: 5px;
+    width: 230px;
+}
+
+table {
+    width: 80%;
+    position: relative;
+    top: 30px;
+    left: 30px;
+}
+
+tr, th {
+    padding: 14px 5px 5px 5px;
+    border: 1px solid rgba(37, 100, 218, .9);
+}
+
+.tags {
+    background-color: rgba(37, 100, 218, .9);
+}
+
+.userTags {
+    display: none;
+}
+
+button {
+    position: absolute;
+    height: 35px;
+    width: 100px;
+    font-family: "kumbh", sans-serif;
+    font-size: 1em;
+    background-color: rgba(37, 100, 218, 0.705);
+    margin: auto;
+    bottom: 4px;
+    border: 2px solid rgba(37, 100, 218, 0.9);
+    border-radius: 10px;    
+}
+
+.order {
+    right: 4px;
+}
+
+button:hover {
+    background-color: rgba(37, 100, 218, 0.85);
+    cursor: pointer;
+}
+
+/* -------- Responsive styles -------- */
+
+@media (min-width: 480px){
+    main {
+        width: 440px;
+        height: 450px;
+    }
+
+    h2 {
+        top: 20px;
+        left: 20px;
+        font-size: 1.5em;
+        width: 400px;
+    }
+
+    tr, th {
+        font-size: 1.2em;
+    }
+
+    button {
+        height: 45px;
+        width: 190px;
+        font-size: 1.5em;
+        bottom: 20px;
+    }
+    
+    .order {
+        right: 4px;
+    }
+}
+
+@media (min-width: 1024px){
+    main {
+        width: 640px;
+    }
+
+    h2 {
+        top: 15px;
+        left: 60px;
+        width: 560px;
+    }
+
+    table {
+        left: 60px;
+    }
+
+    button {
+        bottom: 40px;
+    }
+
+    .order {
+        right: 4px;
+    }
+}
+
+@media (min-width: 2049px){
+    main {
+        width: 2000px;
+    }
+
+    h2 {
+        font-size: 3.5em;
+        top: 40px;
+        left: 140px;
+        width: 2000px;
+    }
+
+    button {
+        bottom: 440px;
+        width: 350px;
+        height: 2em;
+        font-size: 3.5em;
+        left: 440px;
+    }
+
+    table {
+        top: 70px;
+        left: 140px;
+        font-size: 3em;
+    }
+
+    tr, th {
+        padding: 30px 0 0 0;
+    }
+}
+
+@media (min-height: 522px){
+    main {
+        height: 578px;
+    }
+}
+
+@media (min-height: 721px){
+    main {
+        height: 940px;
+    }
+
+}
+
+@media (min-height: 1081px){
+    main {
+        height: 2015px;
+    }
+
+    h2 {
+        top: 100px;
+    }
+
+    table {
+        top: 140px;
+    }
+
+    button {
+        bottom: 300px;
+    }
+}
