@@ -7,7 +7,7 @@
     <meta name="description" content="Esta página es un test para comprobar tus conocimientos sobre HTML, CSS y JavaScript">
     <link rel="stylesheet" href="css/styles.css"><!--set the styles-->
     <link rel="stylesheet" href="css/index.css">
-    <script type="text/javascript" src="js/index.js"></script><!--set the script-->
+    <script src="js/index.js"></script><!--set the script-->
     <title>¿Cuanto sabes de HTML, CSS y JS?</title><!--set the page title-->
 </head>
 <body><!--set the body of the page-->
@@ -16,9 +16,11 @@
     </header>
     <main class="main"><!--set the main part-->
         <form name="startForm" onsubmit="return validation();">
-            <li><label for="nickname">Nombre</label></li>
-            <li><input type="text" name="nickname" id="nickname" class="input"></li>
-            <li><input type="submit" value="Comenzar" class="button"></li>
+            <ul>    
+                <li><label for="nickname">Nombre</label></li>
+                <li><input type="text" name="nickname" id="nickname" class="input"></li>
+                <li><input type="submit" value="Comenzar" class="button"></li>
+            </ul>
         </form>
         <div class="error" id="error"></div>
     </main>

@@ -14,13 +14,13 @@
         <h1 class="title">HTML, CSS y JavaScript Test</h1>
     </header>
     <div class="progressBars"><!--set the progress bar-->
-        <label autosize=false class="progressLabel" for="htmlProgress" id="htmlLabel"><h3 class="progressLabelTitle">HTML</h3></label>
+        <label class="progressLabel" id="htmlLabel"><span class="progressLabelTitle">HTML</span></label>
         <div class="htmlProgress" data-html-lable="0%" id="progressHtml"></div>
-        <label class="progressLabel" for="cssProgress" id="cssLabel"><h3 class="progressLabelTitle">CSS</h3></label>
+        <label class="progressLabel" id="cssLabel"><span class="progressLabelTitle">CSS</span></label>
         <div class="cssProgress" data-css-lable="0%" id="progressCss"></div>
-        <label class="progressLabel" for="javascriptProgress" id="jsLabel"><h3 class="progressLabelTitle">JS</h3></label>
+        <label class="progressLabel" id="jsLabel"><span class="progressLabelTitle">JS</span></label>
         <div class="jsProgress" data-js-lable="0%" id="progressJs"></div>
-        <label class="progressLabel" for="end" id="endLabel"><h3 class="progressLabelTitle">Fin</h3></label>
+        <label class="progressLabel" id="endLabel"><span class="progressLabelTitle">Fin</span></label>
     </div>
     <main class="main"><!--set the type main box for all the questions-->
         <div class="radioQuestion" id="questionRadio"><!--set the radio type questions-->
@@ -67,21 +67,23 @@
         </div>
         <div class="dropdownQuestion" id="questionDropdown"><!--set the dropdown type questions-->
             <h2 id="dropdownQuestions">Pregunta</h2>
-            <li>
-                <select name="answerDropdown" id="dropdownAnswer">
-                    <option selected="" value="Default">Seleccione una opción</option>
-                    <option value="a" id="dropdownAnswerA">respuesta 1</option>
-                    <option value="b" id="dropdownAnswerB">respuesta 2</option>
-                    <option value="c" id="dropdownAnswerC">respuesta 3</option>
-                    <option value="d" id="dropdownAnswerD">respuesta 4</option>
-                </select>
-            </li>
+            <ul>    
+                <li>
+                    <select name="answerDropdown" id="dropdownAnswer">
+                        <option selected="" value="Default">Seleccione una opción</option>
+                        <option value="a" id="dropdownAnswerA">respuesta 1</option>
+                        <option value="b" id="dropdownAnswerB">respuesta 2</option>
+                        <option value="c" id="dropdownAnswerC">respuesta 3</option>
+                        <option value="d" id="dropdownAnswerD">respuesta 4</option>
+                    </select>
+                </li>
+            </ul>
         </div>
         <button onclick="isAnswerSelect();" id="button">Siguiente</button><!--set the button-->    
     </main>
     <footer class="mainFooter"><!--set the footer-->
         <p class="copy">© 2020 Raúl Cátedra Martínez | Todos los derechos reservados</p>
     </footer>
-    <script type="text/javascript" src="../js/quiz.js"></script><!--set the script-->
+    <script src="../js/quiz.js"></script><!--set the script-->
 </body>
 </html>
