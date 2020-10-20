@@ -676,7 +676,7 @@ function showNextQuestion() {
     } else if (currentQuestion === 2) {
         animationBarHtml(20);
         loadCheckboxQuestion(30, 35);
-        currentQuestion++;      
+        currentQuestion++;
     } else if (currentQuestion === 3) {
         animationBarHtml(30);
         loadDropdownQuestion(14, 29);
@@ -720,7 +720,7 @@ function showNextQuestion() {
     } else if (currentQuestion === 12) {
         animationBarCss(20);
         loadRadioQuestion(36, 43);
-        currentQuestion++;      
+        currentQuestion++;
     } else if (currentQuestion === 13) {
         animationBarCss(30);
         loadDropdownQuestion(44, 49);
@@ -764,7 +764,7 @@ function showNextQuestion() {
     } else if (currentQuestion === 22) {
         animationBarJs(20);
         loadCheckboxQuestion(70, 75);
-        currentQuestion++;      
+        currentQuestion++;
     } else if (currentQuestion === 23) {
         animationBarJs(30);
         loadDropdownQuestion(62, 69);
@@ -942,30 +942,37 @@ function secondDropdownAnimation () {
 //Define the functions who change progress bars.
 function animationBarHtml(percent) {
     var unitpercent = percent - 9;
-    setTimeout(function() {
-        for (i = 0; i < 9; i ++) {
+    var interval = setInterval(function() {
         progressHtml.style.setProperty("--width", unitpercent);
         unitpercent++;
-    }}, 200);
+        if(unitpercent == percent) {
+            clearInterval(interval);
+        }
+    },
+    60);
     progressHtml.dataset.htmlLable = (percent) + "%";
 }
 
 function animationBarCss(percent) {
     var unitpercent = percent - 9;
-    setTimeout(function() {
-        for (i = 0; i < 9; i ++) {
+    var interval = setInterval(function() {
         progressCss.style.setProperty("--width", unitpercent);
         unitpercent++;
-    }}, 200);
+        if(unitpercent == percent) {
+            clearInterval(interval);
+        }
+    }, 60);
     progressCss.dataset.cssLable = (percent) + "%";
 }
 
 function animationBarJs(percent) {
     var unitpercent = percent - 9;
-    setTimeout(function() {
-        for (i = 0; i < 9; i ++) {
+    var interval = setInterval(function() {
             progressJs.style.setProperty("--width", unitpercent);
         unitpercent++;
-    }}, 200);
+        if (unitpercent == percent){
+            clearInterval(interval);
+        }
+    }, 60);
     progressJs.dataset.jsLable = (percent) + "%";
 }
