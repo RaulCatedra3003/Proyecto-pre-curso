@@ -1,15 +1,15 @@
 /*
 The following file contains:
 - A list of objects: each object is a question whith it´s answers and the correct one. It´s a Json list. It's ordered as follows(start in 0 like the list item):
-    * Questions from 0 to 13 (both included): HTML radio questions.
-    * Questions from 14 to 29 (both included): HTML dropdown questions.
-    * Questions from 30 to 35 (both included): HTML checkbox questions.
-    * Questions from 36 to 43 (both included): CSS radio questions.
-    * Questions from 44 to 49 (both included): CSS dropdown questions.
-    * Questions from 50 to 55 (both included): CSS checkbox questions.
-    * Questions from 56 to 61 (both included): JavaScript radio questions.
-    * Questions from 62 to 69 (both included): JavaScript dropdown questions.
-    * Questions from 70 to 75 (both included): JavaScriot checkbox questions.
+    - Questions from 0 to 13 (both included): HTML radio questions.
+    - Questions from 14 to 29 (both included): HTML dropdown questions.
+    - Questions from 30 to 35 (both included): HTML checkbox questions.
+    - Questions from 36 to 43 (both included): CSS radio questions.
+    - Questions from 44 to 49 (both included): CSS dropdown questions.
+    - Questions from 50 to 55 (both included): CSS checkbox questions.
+    - Questions from 56 to 61 (both included): JavaScript radio questions.
+    - Questions from 62 to 69 (both included): JavaScript dropdown questions.
+    - Questions from 70 to 75 (both included): JavaScriot checkbox questions.
 - A counter to the question we are.
 - A variable to equals the random number.
 - A lot of variables that we use por take the parts were we like to include text.
