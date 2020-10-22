@@ -11,7 +11,7 @@ function validation(){
         if (localStorage.getItem("usersNames") === null) {
             usersNames.push(actualUser);
             localStorage.setItem("usersNames", JSON.stringify(usersNames));
-            setTimeout("location.href='pages/quiz.html'", 0);   
+            setTimeout("location.href='pages/quiz.html'", 0);
         } else {
             let beforeUsersNames = JSON.parse(localStorage.getItem("usersNames"));
             const searchLastName = beforeUsersNames.filter(nombre => nombre === actualUser);

@@ -50,7 +50,7 @@ button {
     margin: auto;
     bottom: 4px;
     border: 2px solid rgba(37, 100, 218, 0.9);
-    border-radius: 10px;    
+    border-radius: 10px;
 }
 
 .order {
@@ -87,7 +87,7 @@ button:hover {
         font-size: 1.5em;
         bottom: 20px;
     }
-    
+
     .order {
         right: 4px;
     }

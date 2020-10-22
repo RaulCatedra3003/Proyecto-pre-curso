@@ -15,7 +15,7 @@
     top: 0;
     border: 2px solid rgba(37, 100, 218, .9);
     border-radius: 8px;
-    height: 15px;    
+    height: 15px;
 }
 
 .progressLabelTitle {
@@ -50,7 +50,7 @@
     max-width: calc(100% - 0.33em);
     background-color: rgba(37, 100, 218, .7);
     border-radius: .33em;
-    padding: 8px 0 0 0; 
+    padding: 8px 0 0 0;
 }
 
 .cssProgress {
@@ -164,7 +164,7 @@ button {
     bottom: 10px;
     right: 10px;
     border: 2px solid rgba(37, 100, 218, 0.9);
-    border-radius: 10px;    
+    border-radius: 10px;
 }
 
 button:hover {
@@ -191,7 +191,7 @@ select {
 }
 
 select:hover {
-    background-color: rgba(77, 127, 207, 0.305); 
+    background-color: rgba(77, 127, 207, 0.305);
 }
 
 option {
@@ -217,7 +217,7 @@ option {
     .progressBar {
         margin: 40px 20px 0 -20px;
     }
-    
+
     .progressLabel {
         height: 25px;
         left: 0;
@@ -229,27 +229,27 @@ option {
     }
 
     .htmlProgress {
-       width: 80px;
-       height: 1.5em;
-       left: 0; 
+        width: 80px;
+        height: 1.5em;
+        left: 0;
     }
-    
+
     .htmlProgress::before {
         font-size: 1.2em;
         padding: 12px 0 0 0;
     }
-    
+
     .cssProgress {
         width: 80px;
         height: 1.5em;
-        left: 0;  
+        left: 0;
     }
-    
+
     .cssProgress::before {
         font-size: 1.2em;
         padding: 12px 0 0 0;
     }
-    
+
     .jsProgress {
         width: 80px;
         height: 1.5em;
@@ -276,7 +276,7 @@ option {
     input {
         top: 40px;
         left: 20px;
-        font-size: 1.5em; 
+        font-size: 1.5em;
     }
 
     label {
@@ -307,7 +307,7 @@ option {
     .progressBar {
         margin: 50px 40px 0 -40px;
     }
-    
+
     .progressLabel {
         height: 40px;
         left: 5px;
@@ -322,35 +322,35 @@ option {
     .htmlProgress {
         width: 130px;
         height: 2em;
-        left: 5px; 
-     }
-     
-     .htmlProgress::before {
+        left: 5px;
+    }
+
+    .htmlProgress::before {
         font-size: 1.5em;
         padding: 14px 0 0 0;
-     }
-     
-     .cssProgress {
+    }
+
+    .cssProgress {
         width: 130px;
         height: 2em;
-        left: 5px;  
-     }
-     
-     .cssProgress::before {
+        left: 5px;
+    }
+
+    .cssProgress::before {
         font-size: 1.5em;
         padding: 14px 0 0 0;
-     }
-     
-     .jsProgress {
+    }
+
+    .jsProgress {
         width: 130px;
         height: 2em;
-        left: 5px; 
-     }
- 
-     .jsProgress::before {
+        left: 5px;
+    }
+
+    .jsProgress::before {
         font-size: 1.5em;
         padding: 14px 0 0 0;
-     }
+    }
 
     main {
         width: 640px;
@@ -403,35 +403,35 @@ option {
     .htmlProgress {
         width: 350px;
         height: 4em;
-        left: 5px; 
-     }
-     
-     .htmlProgress::before {
+        left: 5px
+    }
+
+    .htmlProgress::before {
         font-size: 2.5em;
         padding: 20px 0 0 0;
-     }
-     
-     .cssProgress {
-        width: 350px;
-        height: 4em;
-        left: 5px;  
-     }
-     
-     .cssProgress::before {
-        font-size: 2.5em;
-        padding: 20px 0 0 0;
-     }
-     
-     .jsProgress {
+    }
+
+    .cssProgress {
         width: 350px;
         height: 4em;
         left: 5px;
-     }
- 
-     .jsProgress::before {
+    }
+
+    .cssProgress::before {
         font-size: 2.5em;
         padding: 20px 0 0 0;
-     }
+    }
+
+    .jsProgress {
+        width: 350px;
+        height: 4em;
+        left: 5px;
+    }
+
+    .jsProgress::before {
+        font-size: 2.5em;
+        padding: 20px 0 0 0;
+    }
 
     main {
         width: 2000px;
@@ -455,7 +455,7 @@ option {
         top: 58px;
         left: 40px;
     }
-    
+
     li>label {
         font-size: 3.5em;
         margin: 30px 0 30px 0;
@@ -475,7 +475,7 @@ option {
         font-size: 1.5em;
         height: 100px;
         width: 730px;
-        max-width: 560px; 
+        max-width: 560px;
     }
 }
 

@@ -804,7 +804,7 @@ function showNextQuestion() {
         button.innerText = "Resultados";
     } else {
         loadResultPage();
-    } 
+    }
 }
 
 //Define the load of the three types of questions

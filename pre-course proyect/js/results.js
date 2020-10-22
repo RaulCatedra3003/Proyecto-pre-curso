@@ -39,11 +39,11 @@ if (isHidden == "false") {
     fillTable();
 }
 
-//Define the function who fills the table whit the dates of the actual user and nine more users 
+//Define the function who fills the table whit the dates of the actual user and nine more users
 function fillTable(){
-   showColumns();
-   fillColumns();
-    
+    showColumns();
+    fillColumns();
+
     function showColumns() {
         if (usersScores.length === 1) {
             userName1.style.display = "table-cell";
@@ -68,7 +68,7 @@ function fillTable(){
             userName3.style.display = "table-cell";
             userScore3.style.display = "table-cell";
             userName4.style.display = "table-cell";
-            userScore4.style.display = "table-cell";           
+            userScore4.style.display = "table-cell";
         } else if (usersScores.length === 5) {
             userName1.style.display = "table-cell";
             userScore1.style.display = "table-cell";
@@ -170,13 +170,13 @@ function fillTable(){
 
     function fillColumns() {
         const searchLastName = usersScores.filter(nombre => nombre.nombre === actualName);
-        const searchNotLastName = usersScores.filter(nombre => nombre.nombre != actualName);           
-        
+        const searchNotLastName = usersScores.filter(nombre => nombre.nombre != actualName);
+
         if (usersScores.length === 1) {
             userName1.innerText = searchLastName[0].nombre;
             userScore1.innerText = (searchLastName[0].score.toFixed(2)) + "/10";
             userName1.style.backgroundColor = "rgba(37, 100, 218, .2)";
-            userScore1.style.backgroundColor = "rgba(37, 100, 218, .2)";    
+            userScore1.style.backgroundColor = "rgba(37, 100, 218, .2)";
         } else if (usersScores.length === 2) {
             userName1.innerText = searchLastName[0].nombre;
             userScore1.innerText = (searchLastName[0].score.toFixed(2)) + "/10";
@@ -203,7 +203,7 @@ function fillTable(){
             userName3.innerText = searchNotLastName[(searchNotLastName.length - 2)].nombre;
             userScore3.innerText = (searchNotLastName[(searchNotLastName.length - 2)].score.toFixed(2)) + "/10";
             userName4.innerText = searchNotLastName[(searchNotLastName.length - 3)].nombre;
-            userScore4.innerText = (searchNotLastName[(searchNotLastName.length - 3)].score.toFixed(2)) + "/10";           
+            userScore4.innerText = (searchNotLastName[(searchNotLastName.length - 3)].score.toFixed(2)) + "/10";
         } else if (usersScores.length === 5) {
             userName1.innerText = searchLastName[0].nombre;
             userScore1.innerText = (searchLastName[0].score.toFixed(2)) + "/10";
@@ -334,13 +334,13 @@ function order() {
 
     function hideBackGround() {
         userName1.style.backgroundColor = "rgba(37, 100, 218, .0)";
-        userScore1.style.backgroundColor = "rgba(37, 100, 218, .0)";  
+        userScore1.style.backgroundColor = "rgba(37, 100, 218, .0)";
     }
 
     function fillOrderedColumns() {
         if (usersScores.length === 1) {
             userName1.innerText = orderedScores[0].nombre;
-            userScore1.innerText = (orderedScores[0].score.toFixed(2)) + "/10";  
+            userScore1.innerText = (orderedScores[0].score.toFixed(2)) + "/10";
         } else if (usersScores.length === 2) {
             userName1.innerText = orderedScores[0].nombre;
             userScore1.innerText = (orderedScores[0].score.toFixed(2)) + "/10";
@@ -361,7 +361,7 @@ function order() {
             userName3.innerText = orderedScores[2].nombre;
             userScore3.innerText = (orderedScores[2].score.toFixed(2)) + "/10";
             userName4.innerText = orderedScores[3].nombre;
-            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10";           
+            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10";
         } else if (usersScores.length === 5) {
             userName1.innerText = orderedScores[0].nombre;
             userScore1.innerText = (orderedScores[0].score.toFixed(2)) + "/10";
@@ -370,7 +370,7 @@ function order() {
             userName3.innerText = orderedScores[2].nombre;
             userScore3.innerText = (orderedScores[2].score.toFixed(2)) + "/10";
             userName4.innerText = orderedScores[3].nombre;
-            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10"; 
+            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10";
             userName5.innerText = orderedScores[4].nombre;
             userScore5.innerText = (orderedScores[4].score.toFixed(2)) + "/10";
         } else if (usersScores.length === 6) {
@@ -381,7 +381,7 @@ function order() {
             userName3.innerText = orderedScores[2].nombre;
             userScore3.innerText = (orderedScores[2].score.toFixed(2)) + "/10";
             userName4.innerText = orderedScores[3].nombre;
-            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10"; 
+            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10";
             userName5.innerText = orderedScores[4].nombre;
             userScore5.innerText = (orderedScores[4].score.toFixed(2)) + "/10";
             userName6.innerText = orderedScores[5].nombre;
@@ -394,7 +394,7 @@ function order() {
             userName3.innerText = orderedScores[2].nombre;
             userScore3.innerText = (orderedScores[2].score.toFixed(2)) + "/10";
             userName4.innerText = orderedScores[3].nombre;
-            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10"; 
+            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10";
             userName5.innerText = orderedScores[4].nombre;
             userScore5.innerText = (orderedScores[4].score.toFixed(2)) + "/10";
             userName6.innerText = orderedScores[5].nombre;
@@ -409,7 +409,7 @@ function order() {
             userName3.innerText = orderedScores[2].nombre;
             userScore3.innerText = (orderedScores[2].score.toFixed(2)) + "/10";
             userName4.innerText = orderedScores[3].nombre;
-            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10"; 
+            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10";
             userName5.innerText = orderedScores[4].nombre;
             userScore5.innerText = (orderedScores[4].score.toFixed(2)) + "/10";
             userName6.innerText = orderedScores[5].nombre;
@@ -426,7 +426,7 @@ function order() {
             userName3.innerText = orderedScores[2].nombre;
             userScore3.innerText = (orderedScores[2].score.toFixed(2)) + "/10";
             userName4.innerText = orderedScores[3].nombre;
-            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10"; 
+            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10";
             userName5.innerText = orderedScores[4].nombre;
             userScore5.innerText = (orderedScores[4].score.toFixed(2)) + "/10";
             userName6.innerText = orderedScores[5].nombre;
@@ -445,7 +445,7 @@ function order() {
             userName3.innerText = orderedScores[2].nombre;
             userScore3.innerText = (orderedScores[2].score.toFixed(2)) + "/10";
             userName4.innerText = orderedScores[3].nombre;
-            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10"; 
+            userScore4.innerText = (orderedScores[3].score.toFixed(2)) + "/10";
             userName5.innerText = orderedScores[4].nombre;
             userScore5.innerText = (orderedScores[4].score.toFixed(2)) + "/10";
             userName6.innerText = orderedScores[5].nombre;
@@ -467,7 +467,7 @@ function order() {
                 position = i;
             }
         }
-    }    
+    }
 
     function actualUserPositionShow() {
         if (position === 0) {
@@ -501,7 +501,7 @@ function order() {
             userName10.style.backgroundColor = "rgba(37, 100, 218, .2)";
             userScore10.style.backgroundColor = "rgba(37, 100, 218, .2)";
         }
-    }   
+    }
 }
 
 //Define the function who hide the result when user refresh the page.
@@ -529,7 +529,7 @@ function tableHide(){
         userName3.style.display = "none";
         userScore3.style.display = "none";
         userName4.style.display = "none";
-        userScore4.style.display = "none";           
+        userScore4.style.display = "none";
     } else if (usersScores.length === 5) {
         userName1.style.display = "none";
         userScore1.style.display = "none";
